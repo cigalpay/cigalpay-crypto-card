@@ -149,7 +149,6 @@ Add the following JavaScript to render the cards dynamically and handle the user
     <title>CigalPay Crypto Card</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cigalpay/cigalpay-crypto-card/css/crypto-card.css">
     <script src="https://cdn.jsdelivr.net/gh/cigalpay/cigalpay-crypto-card/js/crypto-card.js" defer></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
 </head>
 <body>
     <div class="container mt-5">
