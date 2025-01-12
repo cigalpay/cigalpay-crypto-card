@@ -82,7 +82,7 @@ function selectCrypto(cardElement, coinName, price,customHandler) {
     if (customHandler && typeof customHandler === 'function') {
         customHandler({ coinName, price });
     }
-    document.getElementById('selectedCoin').textContent = `${coinName} (${price} ${coinName.split(' ')[1]})`;
+    // document.getElementById('selectedCoin').textContent = `${coinName} (${price} ${coinName.split(' ')[1]})`;
 }
 
 
