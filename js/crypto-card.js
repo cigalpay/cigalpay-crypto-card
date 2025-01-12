@@ -52,7 +52,7 @@ async function renderCryptoCards(containerId,articlePrice,customHandler) {
         // Create the card structure
         const card = document.createElement('div');
         card.className = 'crypto-card';
-        card.setAttribute('onclick', `selectCrypto(this, '${coin.name} (${coin.symbol})', ${priceInCoin})`);
+        card.setAttribute('onclick', `selectCrypto(this, '${coin.name} (${coin.symbol})', ${priceInCoin}), ${customHandler}`);
 
         // Card content
         card.innerHTML = `
