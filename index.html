@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+        <link rel="manifest" href="/assets/site.webmanifest">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CigalPay Crypto Coins </title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/crypto-card.css">
+        <script src="js/crypto-card.js" defer></script>
+    </head>
+    <body>
+
+        <div class="container mt-5">
+            <h2 class="mb-4 text-center font-weight-bold">Select a Cryptocurrency for Payment</h2>
+            <div class="row justify-content-center" id="crypto-container"></div>
+
+            <p class="mt-4 text-center fs-5">Selected Coin: <strong id="selectedCoin">None</strong></p>
+        </div>
+
+        <script>
+            // Custom handler function that will be called when a user selects a coin
+            function customCoinSelectedHandler(data) {
+                alert(`You selected ${data.coinName} with price: $${data.price}`);
+                // Implement any custom logic you need here
+            }
+
+            // Auto-render cards when the page loads
+            document.addEventListener("DOMContentLoaded", function() {
+                renderCryptoCards('crypto-container',5,customCoinSelectedHandler);
+            });
+        </script>
+    </body>
+</html>
