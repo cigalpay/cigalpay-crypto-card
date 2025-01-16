@@ -39,12 +39,10 @@ async function renderCryptoCards(containerId,articlePrice,customHandler) {
     const container = document.getElementById(containerId);
     container.innerHTML = ""; // Clear any existing content
 
-    const prices = await fetchCryptoPrices();
+    // const prices = await fetchCryptoPrices();
 
     cryptoCoins.forEach(coin => {
-        let priceInCoin = prices[coin.symbol] ? (articlePrice / prices[coin.symbol]).toFixed(6) : 'Loading...';
 
-        // priceInCoin = Math.round(priceInCoin * 100) / 100;
         // Create the column div with col-8 mb-3
         const col = document.createElement('div');
         col.className = 'col-8 mb-3';
@@ -52,14 +50,13 @@ async function renderCryptoCards(containerId,articlePrice,customHandler) {
         // Create the card structure
         const card = document.createElement('div');
         card.className = 'crypto-card';
-        card.setAttribute('onclick', `selectCrypto(this, '${coin.name} (${coin.symbol})', ${priceInCoin}, ${customHandler})`);
+        card.setAttribute('onclick', `selectCrypto(this, '${coin.name} (${coin.symbol})',${customHandler})`);
 
         // Card content
         card.innerHTML = `
             <img src="${coin.logo}" alt="${coin.name}">
             <div>
                 <p class="crypto-name mb-0">${coin.name} (${coin.symbol})</p>
-                <p class="crypto-price mb-0">$${priceInCoin}</p>
             </div>
         `;
 
@@ -72,7 +69,7 @@ async function renderCryptoCards(containerId,articlePrice,customHandler) {
 }
 
 // Function to handle the click event when a user selects a crypto
-function selectCrypto(cardElement, coinName, price,customHandler) {
+function selectCrypto(cardElement, coinName,customHandler) {
     // Update the selected coin in the UI
     document.querySelectorAll('.crypto-card').forEach(card => {
         card.classList.remove('selected');
@@ -80,9 +77,9 @@ function selectCrypto(cardElement, coinName, price,customHandler) {
     cardElement.classList.add('selected');
    // If a custom handler function is provided, call it with the coin data
     if (customHandler && typeof customHandler === 'function') {
-        customHandler({ coinName, price });
+        customHandler({ coinName });
     }
-    // document.getElementById('selectedCoin').textContent = `${coinName} (${price} ${coinName.split(' ')[1]})`;
+    // document.getElementById('selectedCoin').textContent = `${coinName} (${coinName.split(' ')[1]})`;
 }
 
 
